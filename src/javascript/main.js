@@ -73,7 +73,8 @@ function pushToDOM(response, startTime) {
   var container = document.querySelector(".js-container");
   // clear it of old content since this function will be used on every search
   // we want to reset the div
-  container.innerHTML = container.innerHTML += "<p class='container-timer'>Found "+Object.keys(response).length+" results in "+timeDiff+" seconds."+"</p>";
+  container.innerHTML = ""
+  container.innerHTML += "<p class='container-timer'>Found "+Object.keys(response).length+" results in "+timeDiff+" seconds."+"</p>";
 
   // loop through data array and add IMG html
   for (const key in response) {
