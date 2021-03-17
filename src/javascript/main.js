@@ -76,8 +76,13 @@ function pushToDOM(response, startTime) {
   container.innerHTML = ""
   container.innerHTML += "<p class='container-timer'>Found "+Object.keys(response).length+" results in "+timeDiff+" seconds."+"</p>";
 
+  // sort results
+  const sortable = Object.entries(response)
+    .sort(([,a],[,b]) => b-a)
+    .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+
   // loop through data array and add IMG html
-  for (const key in response) {
+  for (const key in sortable) {
     // find img src
     var src = key;
 
