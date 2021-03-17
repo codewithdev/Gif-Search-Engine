@@ -42,7 +42,7 @@ function searchDocs(searchQuery) {
   postData(url, { query: searchQuery })
   .then(data => {
     console.log(data); // JSON data parsed by `data.json()` call
-    pushToDOM(data);
+    pushToDOM(data.result);
   });
 
 
