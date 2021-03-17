@@ -73,3 +73,8 @@ p {
 .container-description {
   font-size: 10px;
 }
+
+.container-timer {
+  font-size: 15px;
+  color: rgb(65, 65, 65);
+}
