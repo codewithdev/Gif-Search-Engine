@@ -64,11 +64,11 @@ function searchDocs(searchQuery, startTime) {
         }
         else {
           console.log(response);
-          dataIn.key = response.key
+          dataIn.key = response.key;
         }
       }
       else {
-        console.log("Install AquilaX browser extension for better experience.")
+        console.log("Install AquilaX browser extension for better experience.");
       }
 
       // perform search
