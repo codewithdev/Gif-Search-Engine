@@ -68,7 +68,7 @@ function searchDocs(searchQuery, startTime) {
         }
       }
       else {
-        console.log("Install AquilaX browser extension for better experiance.")
+        console.log("Install AquilaX browser extension for better experience.")
       }
 
       // perform search
