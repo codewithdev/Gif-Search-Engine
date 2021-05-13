@@ -1,3 +1,15 @@
+window.onload = function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  var queryText = urlParams.get("q");
+
+  // trigger search if query param is found
+  if (queryText != null && queryText.trim() != "") {
+    queryText = queryText.trim()
+    document.querySelector(".js-userinput").value = queryText;
+    searchDocs(queryText, new Date());
+  }
+};
+
 document.querySelector(".js-go").addEventListener("click", function () {
   var inputValue = document.querySelector(".js-userinput").value;
   var userInput = getUserInput();
@@ -37,25 +49,36 @@ async function postData(url = '', data = {}) {
 
 function searchDocs(searchQuery, startTime) {
   var url = "/api/search";
+  var dataIn = { query: searchQuery }
 
-  postData(url, { query: searchQuery })
-  .then(data => {
-    console.log(data); // JSON data parsed by `data.json()` call
-    pushToDOM(data.result, startTime);
-  });
+  // use API key if available
+  // The ID of the extension
+  var editorExtensionId = "bcjeaeloapgoghamfccokbdmojknnjif";
 
+  // Make a simple request:
+  chrome.runtime.sendMessage(editorExtensionId, {},
+    function(response) {
+      if (response) {
+        if (!response.success) {
+          console.log(response);
+        }
+        else {
+          console.log(response);
+          dataIn.key = response.key
+        }
+      }
+      else {
+        console.log("Install AquilaX browser extension for better experiance.")
+      }
 
-  
-  // // AJAX Request
-  // var GiphyAJAXCall = new XMLHttpRequest();
-  // GiphyAJAXCall.open("GET", url);
-  // GiphyAJAXCall.send();
-
-  // GiphyAJAXCall.addEventListener("load", function (data) {
-  //   var actualData = data.target.response;
-  //   pushToDOM(actualData);
-  //   console.log(actualData);
-  // });
+      // perform search
+      postData(url, dataIn)
+      .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
+        pushToDOM(data.result, startTime);
+      });
+    }
+  );
 }
 
 function pushToDOM(response, startTime) {
