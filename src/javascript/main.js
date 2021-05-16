@@ -59,11 +59,7 @@ function searchDocs(searchQuery, startTime) {
   chrome.runtime.sendMessage(editorExtensionId, {},
     function(response) {
       if (response) {
-        if (!response.success) {
-          console.log(response);
-        }
-        else {
-          console.log(response);
+        if (response.success) {
           dataIn.key = response.key;
         }
       }
