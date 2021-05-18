@@ -48,6 +48,9 @@ async function postData(url = '', data = {}) {
 }
 
 function searchDocs(searchQuery, startTime) {
+  // update url history
+  window.history.pushState('', '', '/?q='+searchQuery.replace(/ +(?= )/g,'').split(" ").join("+"));
+
   var url = "/api/search";
   var dataIn = { query: searchQuery }
 
