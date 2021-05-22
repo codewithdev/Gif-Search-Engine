@@ -65,6 +65,9 @@ function searchDocs(searchQuery, startTime) {
         if (response.success) {
           dataIn.key = response.key;
         }
+        else {
+          dataIn.database = "9cqyPnQtFpg3vtVTUK73MdzNTdN2h5V5Cu3gvXd5tBJ6";
+        }
       }
       else {
         console.log("Install AquilaX browser extension for better experience.");
