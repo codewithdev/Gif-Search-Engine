@@ -59,28 +59,39 @@ function searchDocs(searchQuery, startTime) {
   var editorExtensionId = "bcjeaeloapgoghamfccokbdmojknnjif";
 
   // Make a simple request:
-  chrome.runtime.sendMessage(editorExtensionId, {},
-    function(response) {
-      if (response) {
-        if (response.success) {
-          dataIn.key = response.key;
+  if (chrome.runtime) {
+    chrome.runtime.sendMessage(editorExtensionId, {},
+      function(response) {
+        if (response) {
+          if (response.success) {
+            dataIn.key = response.key;
+          }
+          else {
+            dataIn.database = "9cqyPnQtFpg3vtVTUK73MdzNTdN2h5V5Cu3gvXd5tBJ6";
+          }
         }
         else {
-          dataIn.database = "9cqyPnQtFpg3vtVTUK73MdzNTdN2h5V5Cu3gvXd5tBJ6";
+          console.log("Install AquilaX browser extension for better experience.");
         }
-      }
-      else {
-        console.log("Install AquilaX browser extension for better experience.");
-      }
 
-      // perform search
-      postData(url, dataIn)
-      .then(data => {
-        console.log(data); // JSON data parsed by `data.json()` call
-        pushToDOM(data.result, startTime);
-      });
-    }
-  );
+        // perform search
+        postData(url, dataIn)
+        .then(data => {
+          console.log(data); // JSON data parsed by `data.json()` call
+          pushToDOM(data.result, startTime);
+        });
+      }
+    );
+  }
+  else {
+    dataIn.database = "9cqyPnQtFpg3vtVTUK73MdzNTdN2h5V5Cu3gvXd5tBJ6";
+    // perform search
+    postData(url, dataIn)
+    .then(data => {
+      console.log(data); // JSON data parsed by `data.json()` call
+      pushToDOM(data.result, startTime);
+    });
+  }
 }
 
 function pushToDOM(response, startTime) {
