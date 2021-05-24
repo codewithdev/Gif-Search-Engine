@@ -56,7 +56,8 @@ function searchDocs(searchQuery, startTime) {
 
   // use API key if available
   // The ID of the extension
-  var editorExtensionId = "bcjeaeloapgoghamfccokbdmojknnjif";
+  // var editorExtensionId = "bcjeaeloapgoghamfccokbdmojknnjif";
+  var editorExtensionId = "albdahjdcmldbcpjmbnbcbckgndaibnk"
 
   // Make a simple request:
   if (chrome.runtime) {
