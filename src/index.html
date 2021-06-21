@@ -1,21 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156570061-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156570061-1');
+    </script>
+
     <title>Aquila X Search Engine</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
-    <div class="header">
-      <img src="img/logo.png"/>
-      <h1>X</h1>
-    
-    
-      <input type="text" class="js-userinput container-textinput" />
-      <button class="js-go container-button">Search</button>
-    
-  </div>
-    <div class="container container-padding50 js-container"></div>
+    <div class="grid justify-center">
+      <div class="flex justify-center mt-8 space-x-8">
+        <div class="flex items-center space-x-2">
+          <div>
+            <img src="img/logo.png"/>
+          </div>
+          <h1 class="font-serif font-bold text-7xl text-purple-600">X</h1>
+        </div>
+        
+      
+        <div class="flex items-center space-x-5">
+          <div class="flex border rounded-full p-1 pr-4 shadow">
+            <div class="pl-4 py-3 fill-current text-gray-500 text-1xl">
+              <i class="fa fa-search"></i>
+            </div>
+            <input type="text" placeholder="" class="js-userinput w-96 border-opacity-0 px-3 focus:outline-none text-1xl"/>
+          </div>
+          <button class="js-go text-1xl px-6 py-3 bg-purple-500 text-white hover:bg-purple-600 font-normal rounded shadow hover:shadow outline-none focus:outline-none">Search</button>
+        </div>
+      
+      </div>
+      <div class="pt-10 py-3 text-purple-600">
+        <a href="https://airtable.com/shr3QnQbBhWmIKv8p" class="flex">
+          <p>send us your feedback</p><p class="pl-2">🗣️📣</p>
+        </a>
+      </div>
+      <div class="grid js-container">
+        <div class="flex">
+          <p class="pt-20 text-gray-400 font-bold">🚨 Make sure that you have installed <a href="https://chrome.google.com/webstore/detail/aquila-x/albdahjdcmldbcpjmbnbcbckgndaibnk" class="underline">Aquila X Chrome extension</a> and requested an <a href="https://aquila.network/index.html#form9-3" class="underline">API key</a></p>
+        </div>
+      </div>
+    </div>
 
     <!-- Link to JavaScript File here-->
     <script src="javascript/main.js"></script>
