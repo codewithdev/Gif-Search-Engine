@@ -111,7 +111,7 @@ function pushToDOM(response, startTime) {
   // clear it of old content since this function will be used on every search
   // we want to reset the div
   container.innerHTML = ""
-  container.innerHTML += "<p class='container-timer'>Found "+Object.keys(response).length+" results in "+timeDiff+" seconds."+"</p>";
+  container.innerHTML += '<p class="text-sm text-gray-600 py-2"> Received '+Object.keys(response).length+' results in '+timeDiff+' seconds.</p>';
 
   // sort results
   const sortable = Object.entries(response)
@@ -124,9 +124,8 @@ function pushToDOM(response, startTime) {
     var src = key;
 
     // concatenate a new url
-    container.innerHTML += "<a href='" + src + "' class='container-url' target='_blank'>"+src+"</a>";
-    container.innerHTML += "<b><p class='container-title'>Score: "+100*response[key]+"</p></b>";
-    // container.innerHTML += "<b><p class='container-title'>Lorem Ipsum is simply dummy text</p></b>";
-    // container.innerHTML += "<p class='container-description'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>";
+    container.innerHTML += "<a href='" + src + "' class='border border-l-4 rounded p-4 hover:bg-gray-50 hover:shadow' target='_blank'> \
+          <p class='text-blue-500 text-2xl'>"+src+"</p> \
+          <p class='font-bold pt-2 text-1xl text-gray-500'>score: "+100*response[key]+"</p></a>";
   }
 }
