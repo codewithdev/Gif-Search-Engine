@@ -125,7 +125,7 @@ function pushToDOM(response, startTime) {
 
     // concatenate a new url
     container.innerHTML += "<a href='" + src + "' class='border border-l-4 rounded p-4 hover:bg-gray-50 hover:shadow' target='_blank'> \
-          <p class='text-blue-500 text-2xl'>"+src+"</p> \
-          <p class='font-bold pt-2 text-1xl text-gray-500'>score: "+100*response[key]+"</p></a>";
+          <p class='text-blue-500 text-2xl truncate w-96'>"+src+"</p> \
+          <p class='font-bold pt-2 text-1xl text-gray-500'>score: "+Math.round(100*response[key])+"</p></a>";
   }
 }
