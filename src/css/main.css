@@ -55,11 +55,30 @@ h1 {
   border-radius: 5px;
 }
 
-p {
+p~.setup {
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.feedback {
+  font-size: 12px;
+  color: rgb(139, 0, 139);
+}
+
+.setup {
+  font-size: 30px;
+  color: rgb(204, 204, 204);
+  overflow-wrap:break-word;
+  text-align:center;
+  text-justify: inter-word;
+}
+
+.setup a{
+  font-size: 30px;
+  color: rgb(196, 195, 195);
+  overflow-wrap:break-word;
 }
 
 .container-url {
