@@ -91,7 +91,7 @@ function searchDocs(searchQuery, startTime) {
   var editorExtensionId = "albdahjdcmldbcpjmbnbcbckgndaibnk"
 
   // Make a simple request:
-  if (chrome.runtime) {
+  if (chrome && chrome.runtime) {
     chrome.runtime.sendMessage(editorExtensionId, {},
       function(response) {
         if (response) {
@@ -133,13 +133,12 @@ function listDocs(startTime) {
   // The ID of the extension
   // var editorExtensionId = "bcjeaeloapgoghamfccokbdmojknnjif";
   var editorExtensionId = "albdahjdcmldbcpjmbnbcbckgndaibnk"
-
+  dataIn = {
+    "page": "0",
+    "limit": "100"
+  }
   // Make a simple request:
-  if (chrome.runtime) {
-    dataIn = {
-      "page": "0",
-      "limit": "100"
-    }
+  if (chrome && chrome.runtime) {
     chrome.runtime.sendMessage(editorExtensionId, {},
       function(response) {
         if (response) {
@@ -285,12 +284,11 @@ function updateBlockSummary (urls) {
   // The ID of the extension
   // var editorExtensionId = "bcjeaeloapgoghamfccokbdmojknnjif";
   var editorExtensionId = "albdahjdcmldbcpjmbnbcbckgndaibnk"
-
+  dataIn = {
+    "urls": urls
+  }
   // Make a simple request:
-  if (chrome.runtime) {
-    dataIn = {
-      "urls": urls
-    }
+  if (chrome && chrome.runtime) {
     chrome.runtime.sendMessage(editorExtensionId, {},
       function(response) {
         if (response) {
